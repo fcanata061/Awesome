@@ -1,0 +1,89 @@
+Guia de instalação da configuração modern para AwesomeWM
+========================================================
+
+1. Backup da configuração antiga
+--------------------------------
+cd ~/.config/awesome
+mv * ../awesome-classic-backup/
+
+Isso cria um backup da sua configuração antiga em ~/.config/awesome-classic-backup/.
+
+
+2. Criar estrutura da pasta modern
+----------------------------------
+mkdir -p ~/.config/awesome/modern/{config,ui/widgets,themes/modern}
+
+
+3. Arquivos necessários
+-----------------------
+Crie estes arquivos com o conteúdo fornecido:
+
+- ~/.config/awesome/modern/rc.lua
+- ~/.config/awesome/modern/autostart.sh
+- ~/.config/awesome/modern/config/variables.lua
+- ~/.config/awesome/modern/config/bindings.lua
+- ~/.config/awesome/modern/config/rules.lua
+- ~/.config/awesome/modern/config/signals.lua
+- ~/.config/awesome/modern/ui/topbar.lua
+- ~/.config/awesome/modern/ui/sidebar.lua
+- ~/.config/awesome/modern/ui/widgets/init.lua
+- ~/.config/awesome/modern/ui/widgets/cpu.lua
+- ~/.config/awesome/modern/ui/widgets/mem.lua
+- ~/.config/awesome/modern/ui/widgets/disk.lua
+- ~/.config/awesome/modern/ui/widgets/net.lua
+- ~/.config/awesome/modern/ui/widgets/battery.lua
+- ~/.config/awesome/modern/ui/widgets/volume.lua
+- ~/.config/awesome/modern/ui/widgets/clock.lua
+- ~/.config/awesome/modern/themes/modern/theme.lua
+
+E coloque um wallpaper em:
+~/.config/awesome/modern/themes/modern/wall.jpg
+
+
+4. Tornar autostart.sh executável
+---------------------------------
+chmod +x ~/.config/awesome/modern/autostart.sh
+
+
+5. Ativar a configuração modern
+-------------------------------
+cd ~/.config/awesome
+rm -rf rc.lua config ui themes autostart.sh
+cp -r modern/* .
+
+Depois recarregue o Awesome com: Mod4 + Ctrl + r
+
+
+6. Voltar para a classic (se quiser)
+------------------------------------
+rm -rf ~/.config/awesome/*
+cp -r ~/.config/awesome-classic-backup/* ~/.config/awesome/
+
+
+Estrutura final (tree)
+----------------------
+awesome/
+└── modern/
+    ├── rc.lua
+    ├── autostart.sh
+    ├── config/
+    │   ├── variables.lua
+    │   ├── bindings.lua
+    │   ├── rules.lua
+    │   └── signals.lua
+    ├── ui/
+    │   ├── topbar.lua
+    │   ├── sidebar.lua
+    │   └── widgets/
+    │       ├── init.lua
+    │       ├── cpu.lua
+    │       ├── mem.lua
+    │       ├── disk.lua
+    │       ├── net.lua
+    │       ├── battery.lua
+    │       ├── volume.lua
+    │       └── clock.lua
+    └── themes/
+        └── modern/
+            ├── theme.lua
+            └── wall.jpg
