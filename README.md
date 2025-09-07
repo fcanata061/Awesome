@@ -1,0 +1,2 @@
+# Awesome
+Configuração do awesome
