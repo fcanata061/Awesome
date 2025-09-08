@@ -1,0 +1,98 @@
+=============================
+ Tutorial de Instalação
+ AwesomeWM All-Circles Fancy
+=============================
+
+1) Instale dependências:
+   ----------------------
+   sudo pacman -S awesome vicious lain lgi alacritty terminus-font
+   # ou equivalente na sua distro (apt/dnf/etc.)
+
+   - awesome  → gerenciador de janelas
+   - vicious  → widgets de sistema
+   - lain     → widgets extras (memória, etc.)
+   - lgi      → bindings Cairo
+   - alacritty → terminal (pode trocar)
+   - terminus-font → fonte monoespaçada usada no tema
+
+2) Crie a pasta de configuração:
+   ------------------------------
+   mkdir -p ~/.config/awesome
+   cd ~/.config/awesome
+
+3) Estrutura de diretórios:
+   -------------------------
+   ~/.config/awesome/
+   ├── rc.lua
+   ├── autostart.sh
+   ├── config/
+   │   ├── variables.lua
+   │   ├── bindings.lua
+   │   ├── rules.lua
+   │   └── signals.lua
+   ├── ui/
+   │   ├── topbar.lua
+   │   ├── sidebar_left.lua
+   │   └── widgets/
+   │       ├── lib/
+   │       │   └── fancy_circle.lua
+   │       ├── cpu.lua
+   │       ├── mem.lua
+   │       ├── net.lua
+   │       └── disks.lua
+   └── themes/
+       └── all-circles/
+           ├── theme.lua
+           └── wall.jpg
+
+   Use `mkdir -p` para criar tudo de uma vez:
+   mkdir -p ~/.config/awesome/{config,ui/widgets/lib,themes/all-circles}
+
+4) Copie os arquivos:
+   -------------------
+   - Salve `rc.lua` em ~/.config/awesome/
+   - Salve `autostart.sh` em ~/.config/awesome/ (chmod +x autostart.sh)
+   - Salve os 4 arquivos de config/ (variables.lua, bindings.lua, rules.lua, signals.lua)
+   - Salve os arquivos da pasta ui/ (topbar.lua, sidebar_left.lua)
+   - Salve os widgets em ui/widgets/ e ui/widgets/lib/
+   - Salve `theme.lua` em themes/all-circles/
+   - Coloque sua imagem de fundo em themes/all-circles/wall.jpg
+
+5) Permissões:
+   ------------
+   chmod +x ~/.config/awesome/autostart.sh
+
+6) Reinicie o Awesome:
+   --------------------
+   - Pressione `Mod4 + Ctrl + r`
+   - Ou saia e entre de novo na sessão AwesomeWM
+
+7) Resultado esperado:
+   -------------------
+   - Barra lateral esquerda estilo dock (180px de largura)
+     com círculos fancy (gradiente, glow) para:
+       • CPU (8 núcleos em anéis)
+       • MEM (uso da memória)
+       • NET (download/upload em círculo duplo)
+       • DISKS (root, boot, usr, home)
+
+   - Topbar superior padrão com systray
+   - Tema translúcido preto com acentos em neon
+   - Atalhos de teclado ativos:
+       • Mod+Enter → abrir terminal
+       • Mod+q → sair
+       • Mod+Shift+r → reiniciar awesome
+       • Mod+Setas → trocar de área de trabalho
+       • Mod+j / Mod+k → navegar entre janelas
+       • Mod+Espaço → trocar layout
+
+8) Personalizações:
+   ----------------
+   - Troque `terminal` em config/variables.lua se quiser outro terminal.
+   - Ajuste a interface de rede (IFACE) em ui/widgets/net.lua ("wlan0" ou "eth0").
+   - Coloque seu wallpaper preferido em themes/all-circles/wall.jpg
+   - Edite cores no theme.lua se quiser outro esquema (verde, azul, etc).
+
+======================================
+Configuração finalizada com sucesso 🎉
+======================================
