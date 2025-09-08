@@ -1,0 +1,89 @@
+Tutorial de instalação da configuração all-circles para AwesomeWM
+=================================================================
+
+1. Backup da configuração atual
+-------------------------------
+cd ~/.config/awesome
+mv * ../awesome-backup/
+
+Isso cria um backup da sua configuração em ~/.config/awesome-backup/.
+
+
+2. Criar estrutura da pasta all-circles
+---------------------------------------
+mkdir -p ~/.config/awesome/all-circles/{config,ui/widgets,themes/all-circles}
+
+
+3. Arquivos necessários
+-----------------------
+Crie estes arquivos com o conteúdo fornecido:
+
+- ~/.config/awesome/all-circles/rc.lua
+- ~/.config/awesome/all-circles/autostart.sh
+- ~/.config/awesome/all-circles/config/variables.lua
+- ~/.config/awesome/all-circles/config/bindings.lua
+- ~/.config/awesome/all-circles/config/rules.lua
+- ~/.config/awesome/all-circles/config/signals.lua
+- ~/.config/awesome/all-circles/ui/topbar.lua
+- ~/.config/awesome/all-circles/ui/sidebar.lua
+- ~/.config/awesome/all-circles/ui/widgets/init.lua
+- ~/.config/awesome/all-circles/ui/widgets/cpu.lua
+- ~/.config/awesome/all-circles/ui/widgets/mem.lua
+- ~/.config/awesome/all-circles/ui/widgets/disk.lua
+- ~/.config/awesome/all-circles/ui/widgets/net.lua
+- ~/.config/awesome/all-circles/ui/widgets/volume.lua
+- ~/.config/awesome/all-circles/ui/widgets/battery.lua
+- ~/.config/awesome/all-circles/ui/widgets/clock.lua
+- ~/.config/awesome/all-circles/themes/all-circles/theme.lua
+
+E coloque um wallpaper em:
+~/.config/awesome/all-circles/themes/all-circles/wall.jpg
+
+
+4. Tornar autostart.sh executável
+---------------------------------
+chmod +x ~/.config/awesome/all-circles/autostart.sh
+
+
+5. Ativar a configuração all-circles
+------------------------------------
+cd ~/.config/awesome
+rm -rf rc.lua config ui themes autostart.sh
+cp -r all-circles/* .
+
+Depois recarregue o Awesome com: Mod4 + Ctrl + r
+
+
+6. Voltar para o backup (se quiser)
+-----------------------------------
+rm -rf ~/.config/awesome/*
+cp -r ~/.config/awesome-backup/* ~/.config/awesome/
+
+
+Estrutura final (tree)
+----------------------
+awesome/
+└── all-circles/
+    ├── rc.lua
+    ├── autostart.sh
+    ├── config/
+    │   ├── variables.lua
+    │   ├── bindings.lua
+    │   ├── rules.lua
+    │   └── signals.lua
+    ├── ui/
+    │   ├── topbar.lua
+    │   ├── sidebar.lua
+    │   └── widgets/
+    │       ├── init.lua
+    │       ├── cpu.lua
+    │       ├── mem.lua
+    │       ├── disk.lua
+    │       ├── net.lua
+    │       ├── volume.lua
+    │       ├── battery.lua
+    │       └── clock.lua
+    └── themes/
+        └── all-circles/
+            ├── theme.lua
+            └── wall.jpg
