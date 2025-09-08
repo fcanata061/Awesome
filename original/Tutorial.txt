@@ -1,0 +1,85 @@
+Tutorial de instalação da configuração retrô para AwesomeWM
+===========================================================
+
+1. Backup da configuração atual
+-------------------------------
+cd ~/.config/awesome
+mv * ../awesome-backup/
+
+Isso cria um backup da sua configuração em ~/.config/awesome-backup/.
+
+
+2. Criar estrutura da pasta retro
+---------------------------------
+mkdir -p ~/.config/awesome/retro/{config,ui/widgets,themes/retro}
+
+
+3. Arquivos necessários
+-----------------------
+Crie estes arquivos com o conteúdo fornecido:
+
+- ~/.config/awesome/retro/rc.lua
+- ~/.config/awesome/retro/autostart.sh
+- ~/.config/awesome/retro/config/variables.lua
+- ~/.config/awesome/retro/config/bindings.lua
+- ~/.config/awesome/retro/config/rules.lua
+- ~/.config/awesome/retro/config/signals.lua
+- ~/.config/awesome/retro/ui/topbar.lua
+- ~/.config/awesome/retro/ui/sidebar.lua
+- ~/.config/awesome/retro/ui/widgets/init.lua
+- ~/.config/awesome/retro/ui/widgets/cpu.lua
+- ~/.config/awesome/retro/ui/widgets/mem.lua
+- ~/.config/awesome/retro/ui/widgets/disk.lua
+- ~/.config/awesome/retro/ui/widgets/net.lua
+- ~/.config/awesome/retro/ui/widgets/volume.lua
+- ~/.config/awesome/retro/themes/retro/theme.lua
+
+E coloque um wallpaper em:
+~/.config/awesome/retro/themes/retro/wall.jpg
+
+
+4. Tornar autostart.sh executável
+---------------------------------
+chmod +x ~/.config/awesome/retro/autostart.sh
+
+
+5. Ativar a configuração retrô
+------------------------------
+cd ~/.config/awesome
+rm -rf rc.lua config ui themes autostart.sh
+cp -r retro/* .
+
+Depois recarregue o Awesome com: Mod4 + Ctrl + r
+
+
+6. Voltar para o backup (se quiser)
+-----------------------------------
+rm -rf ~/.config/awesome/*
+cp -r ~/.config/awesome-backup/* ~/.config/awesome/
+
+
+Estrutura final (tree)
+----------------------
+awesome/
+└── retro/
+    ├── rc.lua
+    ├── autostart.sh
+    ├── config/
+    │   ├── variables.lua
+    │   ├── bindings.lua
+    │   ├── rules.lua
+    │   └── signals.lua
+    ├── ui/
+    │   ├── topbar.lua
+    │   ├── sidebar.lua
+    │   └── widgets/
+    │       ├── init.lua
+    │       ├── cpu.lua
+    │       ├── mem.lua
+    │       ├── disk.lua
+    │       ├── net.lua
+    │       └── volume.lua
+    └── themes/
+        └── retro/
+            ├── theme.lua
+            └── wall.jpg
